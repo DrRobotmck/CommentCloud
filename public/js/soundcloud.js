@@ -1,13 +1,13 @@
 window.onload = function(){
-  document.getElementById('connect').addEventListener('click', function(){
-    SC.initialize({
-      client_id: '456177910e695bec31abd882ed77fedb',
-      redirect_uri: 'http://localhost:4567/home'
-    });
-    SC.connect(function() {
-      SC.get('/me', getTracksForUser);
-    });
-  })
+  // document.getElementById('connect').addEventListener('click', function(){
+  //   SC.initialize({
+  //     client_id: '456177910e695bec31abd882ed77fedb',
+  //     redirect_uri: 'http://localhost:4567/home'
+  //   });
+  //   SC.connect(function() {
+  //     SC.get('/me', getTracksForUser);
+  //   });
+  // })
   // initialize client with app credentials
   // SC.initialize({
   //   client_id: '456177910e695bec31abd882ed77fedb',

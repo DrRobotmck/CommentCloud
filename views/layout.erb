@@ -3,13 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <script src='vendor/jquery.js'></script>
   <script src='vendor/underscore.js'></script>
   <script src='vendor/backbone.js'></script>
   <script src='vendor/handlebars-v1.3.0.js'></script>
   <script src='js/soundcloud.js'></script>  
 </head>
 <body>
-  <%= yield %>
+	<%= yield %>
+
+ 	<div id='container'></div>
+	<button id='connect'></button>
+	<div id='embedder'></div>
 </body>
 <script src="http://connect.soundcloud.com/sdk.js"></script>
+<script src='js/main.js'></script>
 </html>
