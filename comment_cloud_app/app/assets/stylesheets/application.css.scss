@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import url(http://fonts.googleapis.com/css?family=Spinnaker);
+header {
+  font-family: Spinnaker;
+  font-size: 60px;
+  text-align: center;
+  margin: 0 auto;
+  width: 1000px;
+  height: 120px;
+  font-weight: 200;
+  text-shadow: -4px 9px 25px grey;
+}
+body {
+  background: url('http://www.turbophoto.com/Free-Stock-Images/Images/Cloud%20Background%20(1).jpg');
+  background-size: cover;
+  color: rgba(255,255,255,.4);
+  font-family: Spinnaker;
+}
+#comment{
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+  font-family: Spinnaker;
+  font-weight: 200;
+  font-size: 60px;
+}
+#embedder {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+
+  li {
+    display: inline-block;
+    list-style-type: none;
+  }
+  h1{
+    margin: 0 auto;
+    border: 2px solid rgba(0,0,0,.1);
+    background: rgba(255,255,255,.1);
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+  }
+  h1:hover {
+    border:2px solid rgba(255,255,255,.1);
+    background: rgba(0,0,0,.1);
+  }
+}
+#container {
+  background: url('http://pngimg.com/upload/cloud_PNG7.png');
+  background-size: contain;
+  font-weight: 300;
+  width: 100%;
+  height: 730px;
+  margin: 0 auto;
+}

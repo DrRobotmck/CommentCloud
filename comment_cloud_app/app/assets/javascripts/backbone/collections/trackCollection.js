@@ -8,7 +8,15 @@ var SongCollection = Backbone.Collection.extend({
 	},
 	addTracks: function(user){
 		user.collection.forEach(function(song){
-			this.add(song);
+			SC.get('/tracks/'+ song.origin.id+ '/comments', function(data){
+				if (data.length && !data.hasOwnProperty('errors')){
+					song.comments = data;
+					this.add(song);
+				} else {
+					song.comments = [{body: 'No Comments...Lame', user:{username:'Lame Oh'}}]
+					this.add(song);
+				}
+			}.bind(this))
 		}.bind(this));
 	}
 });
