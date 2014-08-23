@@ -30,7 +30,11 @@ var MainView = Backbone.View.extend({
       auto_play: true,
       ontimedcomments: function(comments) {
         _.each(comments, function(comment){
-          mainView.$('#comment').replaceWith(HandlebarsTemplates['comments'](comment));
+          var randomId = Math.floor(Math.random() * 3);
+          var commentView = new CommentView({model: comment});
+          console.log('hi', mainView)
+          mainView.$('#section'+ randomId).append(commentView.el);
+          setTimeout(function(){commentView.animate()},1000);
         });
       }
     }, function(sound){
