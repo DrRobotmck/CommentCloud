@@ -12,7 +12,7 @@ CommentView = Backbone.View.extend({
     console.log('hi', top)
     var interval;
     interval = setInterval(function() {
-      if (top >= 0){
+      if (top >= -500){
         this.$el.css('top', (top -= 10)+ 'px');
       } else {
         clearInterval(interval);

@@ -24,6 +24,6 @@
 //= require_tree .
 
 $(function(){
-var tracksCollection = new SongCollection;
-main = new MainView({collection: tracksCollection})
+  var tracksCollection = new SongCollection;
+  main = new MainView({collection: tracksCollection});
 })
