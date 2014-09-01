@@ -22,11 +22,19 @@ var MainView = Backbone.View.extend({
   // DOM EVENTS
   events: {
     'click h1.start': 'getStream',
+    'click h1.play-pause': 'playPause',
     'click h1.next': 'nextTrack',
     'click h1.back': 'previousTrack'
   },
   // Get audio stream for track
-  getStream: function() {
+  getStream: function(event) {
+    if (this.$('.start').length) { 
+      this.$('.start')
+          .toggleClass('start')
+          .toggleClass('play-pause')
+          .text('||');
+      this.$el.toggleClass('active')
+    }
     var mainView = this;
     var track = mainView.collection.models[mainView.counter];
     mainView.$('#track').replaceWith(HandlebarsTemplates['track'](track.toJSON()));
@@ -39,9 +47,9 @@ var MainView = Backbone.View.extend({
             var randomId = Math.floor(Math.random() * 3);
             var commentView = new CommentView({ model: comment });
             var leftShift = ($('#section').width() * Math.random() - 300) + 'px';
-            commentView.$el.css('left', leftShift);
+            commentView.$el.css({'left': leftShift, 'top': $('#section').height() + 400 + 'px'});
             mainView.$('#section').append(commentView.el);
-            commentView.animate() 
+            webkitRequestAnimationFrame(commentView.animate.bind(commentView)); 
           }, 1000);
         });
       }
@@ -52,6 +60,16 @@ var MainView = Backbone.View.extend({
         if (mainView.sound.playState == 0) { mainView.nextTrack(); }
       }, 1000);
     });
+  },
+  playPause: function() {
+    if (this.$el.hasClass('active')) {
+      this.sound.pause();
+      this.$('.play-pause').text('>');
+    } else {
+      this.sound.resume();
+      this.$('.play-pause').text('||');
+    }
+    this.$el.toggleClass('active')
   },
   nextTrack: function () {
     clearInterval(this.playChecker);
