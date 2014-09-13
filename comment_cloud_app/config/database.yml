@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: comment_cloud_app_production
-  username: comment_cloud_app
+  # username: comment_cloud_app
   password: <%= ENV['COMMENT_CLOUD_APP_DATABASE_PASSWORD'] %>
